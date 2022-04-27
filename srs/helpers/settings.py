@@ -16,14 +16,12 @@ class JsonProvider(AbstractProvider):
             name)
 
 
-provider = JsonProvider()
-
-
 class ConnectionString(Config):
-    __CONNECTION_STRING = field("ConnectionStrings", provider=provider)
+    __CONNECTION_STRING = field("ConnectionStrings", provider=JsonProvider())
 
     def get(self, name):
         return self.__CONNECTION_STRING[name]
 
 
-config = ConnectionString()
+def config():
+    return ConnectionString()

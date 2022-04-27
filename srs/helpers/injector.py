@@ -8,4 +8,5 @@ class Container(containers.DeclarativeContainer):
     customers_service = providers.Factory(CustomerStore, context=database)
 
 
-container = Container()
+def get_container():
+    return Container()
